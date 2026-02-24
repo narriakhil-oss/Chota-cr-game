@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dada Buffalo Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+#header {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  text-align: center;
+}
+
+#tagline {
+  margin: 0;
+  color: white;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+#score {
+  margin: 5px 0 0 0;
+  color: white;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: skyblue;
+  text-align: center;
+  font-family: Arial;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  background: #70c5ce;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<div id="header">
+  <h2 id="tagline">Chota CR 😎</h2>
+  <h1 id="score">Score: 0</h1>
+</div>
+<canvas id="gameCanvas"></canvas>
+
+<script src="game.js"></script>
+
+</body>
+</html>
