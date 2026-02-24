@@ -37,7 +37,7 @@ resetGame();
 function createPipe() {
   if (gameOver) return;
 
-  let gap = 160;
+  let gap = 230;
   let topHeight = Math.random() * 250 + 50;
 
   pipes.push({
@@ -81,7 +81,7 @@ function drawFireTrail() {
 }
 function updatePipes() {
   pipes.forEach(pipe => {
-    pipe.x -= 3;
+    pipe.x -= 2;
 
     // Collision detection
     if (
@@ -148,7 +148,7 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-setInterval(createPipe, 2000);
+setInterval(createPipe, 3000);
 
 function handleTouch(e) {
   if (gameOver) {
