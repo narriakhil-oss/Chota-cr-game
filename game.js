@@ -13,6 +13,8 @@ const scoreText = document.getElementById("score");
 
 const birdImg = new Image();
 birdImg.src = "dada.jpg";
+const capImg = new Image();
+capImg.src = "cap.png";
 
 let bird, pipes, score, gameOver;
 
@@ -60,12 +62,33 @@ function drawBird() {
 
 function drawPipes() {
   ctx.fillStyle = "green";
+
   pipes.forEach(pipe => {
+    // Top pipe body
     ctx.fillRect(pipe.x, 0, pipe.width, pipe.top);
+
+    // Bottom pipe body
     ctx.fillRect(pipe.x, pipe.bottom, pipe.width, canvas.height);
+
+    // 🖼 Top cap image
+    ctx.drawImage(
+      capImg,
+      pipe.x - 10,              // slight left adjust
+      pipe.top - 30,            // position at pipe end
+      pipe.width + 20,          // little wider
+      30                        // height of cap
+    );
+
+    // 🖼 Bottom cap image
+    ctx.drawImage(
+      capImg,
+      pipe.x - 10,
+      pipe.bottom,
+      pipe.width + 20,
+      30
+    );
   });
-}
-function drawFireTrail() {
+}function drawFireTrail() {
   for (let i = 0; i < 6; i++) {
     ctx.beginPath();
     ctx.fillStyle = `rgba(255, ${100 + Math.random() * 155}, 0, 0.7)`;
