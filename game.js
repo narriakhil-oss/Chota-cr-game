@@ -71,23 +71,20 @@ function drawPipes() {
     // Bottom pipe
     ctx.fillRect(pipe.x, pipe.bottom, pipe.width, canvas.height);
 
-    // 🔥 Image size (square)
     const imgSize = 40;
 
-    // Center horizontally inside pipe
     const centerX = pipe.x + pipe.width / 2 - imgSize / 2;
 
-    // Place INSIDE top pipe (near opening)
-    const topY = pipe.top - imgSize - 10;
+    // Place image INSIDE top pipe (slightly above gap)
+    const topY = pipe.top - imgSize;
 
-    // Place INSIDE bottom pipe (near opening)
-    const bottomY = pipe.bottom + 10;
+    // Place image INSIDE bottom pipe (slightly below gap)
+    const bottomY = pipe.bottom;
 
-    // Draw images
     ctx.drawImage(capImg, centerX, topY, imgSize, imgSize);
     ctx.drawImage(capImg, centerX, bottomY, imgSize, imgSize);
   });
-}}function drawFireTrail() {
+}function drawFireTrail() {
   for (let i = 0; i < 6; i++) {
     ctx.beginPath();
     ctx.fillStyle = `rgba(255, ${100 + Math.random() * 155}, 0, 0.7)`;
