@@ -64,31 +64,30 @@ function drawPipes() {
   ctx.fillStyle = "green";
 
   pipes.forEach(pipe => {
-    // Top pipe body
+
+    // Top pipe
     ctx.fillRect(pipe.x, 0, pipe.width, pipe.top);
 
-    // Bottom pipe body
+    // Bottom pipe
     ctx.fillRect(pipe.x, pipe.bottom, pipe.width, canvas.height);
 
-    // 🖼 Top cap image
-    ctx.drawImage(
-      capImg,
-      pipe.x - 10,              // slight left adjust
-      pipe.top - 35,            // position at pipe end
-      pipe.width ,          // little wider
-      35                       // height of cap
-    );
+    // 🔥 Image size (square)
+    const imgSize = 40;
 
-    // 🖼 Bottom cap image
-    ctx.drawImage(
-      capImg,
-      pipe.x ,
-      pipe.bottom,
-      pipe.width,
-      35
-    );
+    // Center horizontally inside pipe
+    const centerX = pipe.x + pipe.width / 2 - imgSize / 2;
+
+    // Place INSIDE top pipe (near opening)
+    const topY = pipe.top - imgSize - 10;
+
+    // Place INSIDE bottom pipe (near opening)
+    const bottomY = pipe.bottom + 10;
+
+    // Draw images
+    ctx.drawImage(capImg, centerX, topY, imgSize, imgSize);
+    ctx.drawImage(capImg, centerX, bottomY, imgSize, imgSize);
   });
-}function drawFireTrail() {
+}}function drawFireTrail() {
   for (let i = 0; i < 6; i++) {
     ctx.beginPath();
     ctx.fillStyle = `rgba(255, ${100 + Math.random() * 155}, 0, 0.7)`;
