@@ -23,8 +23,8 @@ function resetGame() {
     x: canvas.width / 6,
     y: canvas.height / 3,
     size: 60,
-    gravity: 0.5,
-    lift: -9,
+    gravity: 0.4,
+    lift: -6,
     velocity: 0
   };
 
@@ -39,14 +39,14 @@ resetGame();
 function createPipe() {
   if (gameOver) return;
 
-  let gap = 230;
+  let gap = 240;
   let topHeight = Math.random() * 250 + 50;
 
   pipes.push({
     x: canvas.width,
     top: topHeight,
     bottom: topHeight + gap,
-    width: 60,
+    width: 100,
     passed: false   // 👈 add this
   });
 }
@@ -74,18 +74,18 @@ function drawPipes() {
     ctx.drawImage(
       capImg,
       pipe.x - 10,              // slight left adjust
-      pipe.top - 30,            // position at pipe end
-      pipe.width + 20,          // little wider
-      30                        // height of cap
+      pipe.top - 35,            // position at pipe end
+      pipe.width ,          // little wider
+      35                       // height of cap
     );
 
     // 🖼 Bottom cap image
     ctx.drawImage(
       capImg,
-      pipe.x - 10,
+      pipe.x ,
       pipe.bottom,
-      pipe.width + 20,
-      30
+      pipe.width,
+      35
     );
   });
 }function drawFireTrail() {
